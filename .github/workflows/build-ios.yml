@@ -44,7 +44,7 @@ jobs:
       - name: Create Sideloadable IPA Package
         run: |
           mkdir -p iosApp/build/Payload
-          mv iosApp/build/Build/Products/Debug-iphoneos/iosApp.app iosApp/build/Payload/Nuvio.app
+          mv iosApp/build/Build/Products/Debug-iphoneos/Nuvio.app iosApp/build/Payload/Nuvio.app
           cd iosApp/build
           zip -r Nuvio.ipa Payload
 
