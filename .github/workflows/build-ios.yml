@@ -20,7 +20,7 @@ jobs:
       - name: Compile KMP Frameworks
         run: |
           chmod +x gradlew
-          ./gradlew :composeApp:assembleDebug
+          ./gradlew :composeApp:assembleDebug -Pnuvio.android.distribution=full
 
       - name: Build Xcode Project
         run: |
