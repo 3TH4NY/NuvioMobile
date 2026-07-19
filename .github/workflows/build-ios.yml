@@ -26,10 +26,11 @@ jobs:
       - name: Compile and Build Xcode Project
         run: |
           cd iosApp
-          xcodebuild -workspace iosApp.xcworkspace \
+          xcodebuild -project iosApp.xcodeproj \
                      -scheme iosApp \
                      -configuration Debug \
                      -sdk iphoneos \
+                     -derivedDataPath build \
                      CODE_SIGNING_ALLOWED=NO \
                      CODE_SIGNING_REQUIRED=NO \
                      clean build
@@ -37,7 +38,7 @@ jobs:
       - name: Create Sideloadable IPA Package
         run: |
           mkdir -p iosApp/build/Payload
-          mv iosApp/build/Release-iphoneos/iosApp.app iosApp/build/Payload/Nuvio.app
+          mv iosApp/build/Build/Products/Debug-iphoneos/iosApp.app iosApp/build/Payload/Nuvio.app
           cd iosApp/build
           zip -r Nuvio.ipa Payload
 
