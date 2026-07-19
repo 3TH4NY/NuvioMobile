@@ -19,8 +19,8 @@ jobs:
 
       - name: Compile KMP Frameworks
         run: |
-          chmod +x scripts/build-distribution.sh
-          ./scripts/build-distribution.sh
+          chmod +x gradlew
+          ./gradlew :composeApp:assembleDebug
 
       - name: Build Xcode Project
         run: |
